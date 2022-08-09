@@ -36,7 +36,7 @@ impl Config {
             .map_err(|_| env::VarError::NotPresent)?
             .map_err(|_| env::VarError::NotPresent)?;
 
-        let mut port = serialport::new(wires::SERIAL_DEV, wires::SERIAL_RATE)
+        let port = serialport::new(wires::SERIAL_DEV, wires::SERIAL_RATE)
             .timeout(std::time::Duration::from_millis(100))
             .open()
             .map_err(|_| env::VarError::NotPresent)?;
